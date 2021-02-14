@@ -24,7 +24,14 @@ namespace TennisBookings.Merchandise.Api.IntegrationTests.Controllers
             _client = factory.CreateClient();
             _factory = factory;
         }
-        
+
+        [Fact]
+        public async Task GetStockTotal_ReturnsSuccessStatusCode()
+        {
+            var response = await _client.GetAsync("total");
+            response.EnsureSuccessStatusCode();
+        }
+
         [Fact]
         public async Task GetStockTotal_ReturnsExpectedJson()
         {
